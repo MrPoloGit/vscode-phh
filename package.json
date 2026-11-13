@@ -1,0 +1,67 @@
+{
+  "name": "phh",
+  "displayName": "PHH (Poker Hand History)",
+  "description": "Syntax highlighting, diagnostics, hover, and completion for PHH (.phh/.phhs) hand-history files, backed by phh-ls.",
+  "version": "0.1.0",
+  "publisher": "streetscope",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:phh"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "phh",
+        "aliases": ["PHH", "Poker Hand History"],
+        "extensions": [".phh", ".phhs"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "phh",
+        "scopeName": "source.phh",
+        "path": "./syntaxes/phh.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "phh",
+        "path": "./snippets/phh.code-snippets"
+      }
+    ],
+    "configuration": {
+      "title": "PHH",
+      "properties": {
+        "phh.serverPath": {
+          "type": "string",
+          "default": "phh-ls",
+          "description": "Path to the phh-ls executable. Defaults to \"phh-ls\" on PATH; set an absolute path during local development."
+        },
+        "phh.registryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the phh/registry directory phh-ls should load. Required: phh-ls has no built-in default."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "test-grammar": "node ./out-test/test/tokenize-corpus.js"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.1.0"
+  }
+}

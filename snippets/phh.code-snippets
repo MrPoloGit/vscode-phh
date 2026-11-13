@@ -1,0 +1,174 @@
+{
+  "PHH hand: Fixed-limit Texas hold 'em (FT)": {
+    "prefix": "phh-ft",
+    "body": [
+      "variant = \"FT\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "small_bet = ${5:1}",
+      "big_bet = ${6:1}",
+      "starting_stacks = [${7:0}, ${8:0}]",
+      "actions = [",
+      "  \"${9:d dh p1 AcKd}\",",
+      "]",
+      "${10}"
+    ],
+    "description": "Fixed-limit Texas hold 'em (FT): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: No-limit Texas hold 'em (NT)": {
+    "prefix": "phh-nt",
+    "body": [
+      "variant = \"NT\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "min_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "No-limit Texas hold 'em (NT): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: No-limit short-deck hold 'em (NS)": {
+    "prefix": "phh-ns",
+    "body": [
+      "variant = \"NS\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "min_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "No-limit short-deck hold 'em (NS): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Pot-limit Omaha hold 'em (PO)": {
+    "prefix": "phh-po",
+    "body": [
+      "variant = \"PO\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "min_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "Pot-limit Omaha hold 'em (PO): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit Omaha hold 'em high/low-split eight or better (FO/8)": {
+    "prefix": "phh-fo-8",
+    "body": [
+      "variant = \"FO/8\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "small_bet = ${5:1}",
+      "big_bet = ${6:1}",
+      "starting_stacks = [${7:0}, ${8:0}]",
+      "actions = [",
+      "  \"${9:d dh p1 AcKd}\",",
+      "]",
+      "${10}"
+    ],
+    "description": "Fixed-limit Omaha hold 'em high/low-split eight or better (FO/8): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit seven card stud (F7S)": {
+    "prefix": "phh-f7s",
+    "body": [
+      "variant = \"F7S\"",
+      "antes = [${1:0}, ${2:0}]",
+      "bring_in = ${3:1}",
+      "small_bet = ${4:1}",
+      "big_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "Fixed-limit seven card stud (F7S): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit seven card stud high/low-split eight or better (F7S/8)": {
+    "prefix": "phh-f7s-8",
+    "body": [
+      "variant = \"F7S/8\"",
+      "antes = [${1:0}, ${2:0}]",
+      "bring_in = ${3:1}",
+      "small_bet = ${4:1}",
+      "big_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "Fixed-limit seven card stud high/low-split eight or better (F7S/8): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit razz (FR)": {
+    "prefix": "phh-fr",
+    "body": [
+      "variant = \"FR\"",
+      "antes = [${1:0}, ${2:0}]",
+      "bring_in = ${3:1}",
+      "small_bet = ${4:1}",
+      "big_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "Fixed-limit razz (FR): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: No-limit deuce-to-seven lowball single draw (N2L1D)": {
+    "prefix": "phh-n2l1d",
+    "body": [
+      "variant = \"N2L1D\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "min_bet = ${5:1}",
+      "starting_stacks = [${6:0}, ${7:0}]",
+      "actions = [",
+      "  \"${8:d dh p1 AcKd}\",",
+      "]",
+      "${9}"
+    ],
+    "description": "No-limit deuce-to-seven lowball single draw (N2L1D): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit deuce-to-seven lowball triple draw (F2L3D)": {
+    "prefix": "phh-f2l3d",
+    "body": [
+      "variant = \"F2L3D\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "small_bet = ${5:1}",
+      "big_bet = ${6:1}",
+      "starting_stacks = [${7:0}, ${8:0}]",
+      "actions = [",
+      "  \"${9:d dh p1 AcKd}\",",
+      "]",
+      "${10}"
+    ],
+    "description": "Fixed-limit deuce-to-seven lowball triple draw (F2L3D): required fields only, per phh/registry/variants.json"
+  },
+  "PHH hand: Fixed-limit badugi (FB)": {
+    "prefix": "phh-fb",
+    "body": [
+      "variant = \"FB\"",
+      "antes = [${1:0}, ${2:0}]",
+      "blinds_or_straddles = [${3:0}, ${4:0}]",
+      "small_bet = ${5:1}",
+      "big_bet = ${6:1}",
+      "starting_stacks = [${7:0}, ${8:0}]",
+      "actions = [",
+      "  \"${9:d dh p1 AcKd}\",",
+      "]",
+      "${10}"
+    ],
+    "description": "Fixed-limit badugi (FB): required fields only, per phh/registry/variants.json"
+  }
+}

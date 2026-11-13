@@ -1,0 +1,171 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "PHH",
+  "scopeName": "source.phh",
+  "fileTypes": ["phh", "phhs"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#table-header" },
+    { "include": "#variant-pair" },
+    { "include": "#actions-pair" },
+    { "include": "#generic-pair" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.phh"
+    },
+
+    "table-header": {
+      "match": "^\\s*(\\[)([^\\]]*)(\\])",
+      "captures": {
+        "1": { "name": "punctuation.definition.table.phh" },
+        "2": { "name": "entity.name.label.phh" },
+        "3": { "name": "punctuation.definition.table.phh" }
+      }
+    },
+
+    "key": {
+      "match": "[A-Za-z0-9_-]+",
+      "name": "variable.other.member.phh"
+    },
+
+    "operator": {
+      "match": "=",
+      "name": "keyword.operator.assignment.phh"
+    },
+
+    "boolean": {
+      "match": "\\b(true|false)\\b",
+      "name": "constant.language.boolean.phh"
+    },
+    "number": {
+      "match": "[+-]?\\b(inf|nan)\\b|[+-]?\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\\b",
+      "name": "constant.numeric.phh"
+    },
+    "local-time": {
+      "match": "\\b[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?\\b",
+      "name": "constant.other.time.phh"
+    },
+
+    "escape-sequence": {
+      "match": "\\\\([\"\\\\bfnrt]|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})",
+      "name": "constant.character.escape.phh"
+    },
+
+    "basic-string": {
+      "begin": "\"",
+      "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.phh" } },
+      "end": "\"",
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.phh" } },
+      "name": "string.quoted.double.phh",
+      "patterns": [{ "include": "#escape-sequence" }]
+    },
+    "literal-string": {
+      "begin": "'",
+      "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.phh" } },
+      "end": "'",
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.phh" } },
+      "name": "string.quoted.single.phh"
+    },
+
+    "value": {
+      "patterns": [
+        { "include": "#basic-string" },
+        { "include": "#literal-string" },
+        { "include": "#boolean" },
+        { "include": "#local-time" },
+        { "include": "#number" },
+        { "include": "#array" }
+      ]
+    },
+
+    "array": {
+      "begin": "\\[",
+      "beginCaptures": { "0": { "name": "punctuation.bracket.phh" } },
+      "end": "\\]",
+      "endCaptures": { "0": { "name": "punctuation.bracket.phh" } },
+      "patterns": [
+        { "include": "#comment" },
+        { "match": ",", "name": "punctuation.separator.phh" },
+        { "include": "#value" }
+      ]
+    },
+
+    "generic-pair": {
+      "comment": "Must be begin/end, not a flat `match`: a `match` rule's `patterns` field has no span to apply over, so the field's value was never actually tokenized via #value/#basic-string. Confirmed by this failing on a value containing a literal '#' (phh/corpus/valid/arieh-esposito-hui-yockey-2019.phh's `event` field), which fell through to the top-level #comment pattern matching the '#' inside the string. Same class of bug as tree-sitter-phh's own first-draft string rule.",
+      "begin": "^(\\s*)([A-Za-z0-9_-]+)(\\s*)(=)",
+      "beginCaptures": {
+        "2": { "name": "variable.other.member.phh" },
+        "4": { "name": "keyword.operator.assignment.phh" }
+      },
+      "end": "$",
+      "patterns": [{ "include": "#value" }]
+    },
+
+    "variant-pair": {
+      "comment": "Highlights the variant field's value with its own scope, mirroring tree-sitter-phh/queries/highlights.scm's special-casing of the same field.",
+      "match": "^(\\s*)(variant)(\\s*)(=)(\\s*)([\"']([A-Za-z0-9/]*)[\"'])",
+      "captures": {
+        "2": { "name": "variable.other.member.phh" },
+        "4": { "name": "keyword.operator.assignment.phh" },
+        "6": { "name": "string.quoted.special.variant.phh support.constant.variant-code.phh" }
+      }
+    },
+
+    "actions-pair": {
+      "comment": "The `actions` field's array elements are not plain strings: their contents are the action-notation micro-grammar (phh/registry/actions.json; tree-sitter-phh-actions), so this pattern nests #action-token-content inside each string instead of using the generic #basic-string/#literal-string rules.",
+      "begin": "^(\\s*)(actions)(\\s*)(=)(\\s*)(\\[)",
+      "beginCaptures": {
+        "2": { "name": "variable.other.member.phh" },
+        "4": { "name": "keyword.operator.assignment.phh" },
+        "6": { "name": "punctuation.bracket.phh" }
+      },
+      "end": "\\]",
+      "endCaptures": { "0": { "name": "punctuation.bracket.phh" } },
+      "patterns": [
+        { "include": "#comment" },
+        { "match": ",", "name": "punctuation.separator.phh" },
+        { "include": "#action-string-double" },
+        { "include": "#action-string-single" }
+      ]
+    },
+
+    "action-string-double": {
+      "begin": "\"",
+      "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.phh" } },
+      "end": "\"",
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.phh" } },
+      "name": "string.quoted.double.action.phh",
+      "patterns": [{ "include": "#action-token-content" }, { "include": "#escape-sequence" }]
+    },
+    "action-string-single": {
+      "begin": "'",
+      "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.phh" } },
+      "end": "'",
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.phh" } },
+      "name": "string.quoted.single.action.phh",
+      "patterns": [{ "include": "#action-token-content" }]
+    },
+
+    "action-token-content": {
+      "comment": "phh/registry/actions.json's grammar: an actor (d, pN), a verb (db/dh/pb/cbr/cc/f/sd/sm), card/amount arguments, and an optional trailing # commentary. Distinct from an ordinary TOML comment, which never reaches this pattern since it only applies inside the quotes.",
+      "patterns": [
+        { "match": "#.*$", "name": "comment.line.number-sign.action-commentary.phh" },
+        { "match": "\\bd\\b", "name": "keyword.control.actor.dealer.phh" },
+        { "match": "\\bp[0-9]+\\b", "name": "variable.parameter.actor.player.phh" },
+        {
+          "match": "\\b(db|dh|pb|cbr|cc|f|sd|sm)\\b",
+          "name": "support.function.action-verb.phh"
+        },
+        {
+          "comment": "No \\b word-boundary here on purpose: concatenated cards (e.g. 'Ac2d') are a continuous run of word characters with no boundary between the first card's suit and the second card's rank, so a \\b-anchored regex only ever matches the LAST 2-char chunk of a run. The tokenizer already advances position-by-position, so a plain 2-char match is enough.",
+          "match": "[2-9TJQKA?][cdhs?]",
+          "name": "constant.character.card.phh"
+        },
+        { "match": "(?<=\\s|^)-(?=\\s|$)", "name": "constant.character.card-repeat.phh" },
+        { "match": "\\b[0-9]+(\\.[0-9]+)?\\b", "name": "constant.numeric.amount.phh" }
+      ]
+    }
+  }
+}
