@@ -22,6 +22,13 @@ Development Host), then set `phh.registryPath` to the absolute path of
 `../phh/registry` and `phh.serverPath` to `../phh-ls/build/phh-ls` if it
 isn't on `PATH`.
 
+**Not published to the VS Code Marketplace.** This repo is pushed to
+`github.com/MrPoloGit/vscode-phh`, but there's no marketplace listing,
+`vsce publish` has not been run, and `package.json` has no `repository`
+field yet. The only ways to run this today are the Extension
+Development Host above or a manually-built `.vsix`
+(`npx @vscode/vsce package`), sideloaded via "Install from VSIX".
+
 ## What's implemented
 
 - **Language registration**: `.phh` and `.phhs` → language id `phh`
