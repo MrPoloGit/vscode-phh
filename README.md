@@ -19,7 +19,7 @@ node test/tokenize-corpus.js   # grammar verification, see below
 
 To actually run it in VS Code: open this folder, press F5 (Extension
 Development Host), then set `phh.registryPath` to the absolute path of
-`../phh/registry` and `phh.serverPath` to `../phh-ls/build/phh-ls` if it
+`../phh-data/registry` and `phh.serverPath` to `../phh-ls/build/phh-ls` if it
 isn't on `PATH`.
 
 **Not published to the VS Code Marketplace.** This repo is pushed to
@@ -44,7 +44,7 @@ Development Host above or a manually-built `.vsix`
   string rule the same way `tree-sitter-phh-actions` is a separate grammar
   from `tree-sitter-phh`.
 - **Snippets** (`snippets/phh.code-snippets`): one per variant code,
-  **generated from `phh/registry/variants.json`** (not hand-typed) so each
+  **generated from `phh-data/registry/variants.json`** (not hand-typed) so each
   snippet's field set can never silently drift from the registry; each
   pre-fills exactly that variant's required fields with sensible
   placeholders and real tabstops.

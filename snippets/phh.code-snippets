@@ -13,7 +13,7 @@
       "]",
       "${10}"
     ],
-    "description": "Fixed-limit Texas hold 'em (FT): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit Texas hold 'em (FT): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: No-limit Texas hold 'em (NT)": {
     "prefix": "phh-nt",
@@ -28,7 +28,7 @@
       "]",
       "${9}"
     ],
-    "description": "No-limit Texas hold 'em (NT): required fields only, per phh/registry/variants.json"
+    "description": "No-limit Texas hold 'em (NT): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: No-limit short-deck hold 'em (NS)": {
     "prefix": "phh-ns",
@@ -43,7 +43,7 @@
       "]",
       "${9}"
     ],
-    "description": "No-limit short-deck hold 'em (NS): required fields only, per phh/registry/variants.json"
+    "description": "No-limit short-deck hold 'em (NS): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Pot-limit Omaha hold 'em (PO)": {
     "prefix": "phh-po",
@@ -58,7 +58,7 @@
       "]",
       "${9}"
     ],
-    "description": "Pot-limit Omaha hold 'em (PO): required fields only, per phh/registry/variants.json"
+    "description": "Pot-limit Omaha hold 'em (PO): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit Omaha hold 'em high/low-split eight or better (FO/8)": {
     "prefix": "phh-fo-8",
@@ -74,7 +74,7 @@
       "]",
       "${10}"
     ],
-    "description": "Fixed-limit Omaha hold 'em high/low-split eight or better (FO/8): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit Omaha hold 'em high/low-split eight or better (FO/8): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit seven card stud (F7S)": {
     "prefix": "phh-f7s",
@@ -90,7 +90,7 @@
       "]",
       "${9}"
     ],
-    "description": "Fixed-limit seven card stud (F7S): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit seven card stud (F7S): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit seven card stud high/low-split eight or better (F7S/8)": {
     "prefix": "phh-f7s-8",
@@ -106,7 +106,7 @@
       "]",
       "${9}"
     ],
-    "description": "Fixed-limit seven card stud high/low-split eight or better (F7S/8): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit seven card stud high/low-split eight or better (F7S/8): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit razz (FR)": {
     "prefix": "phh-fr",
@@ -122,7 +122,7 @@
       "]",
       "${9}"
     ],
-    "description": "Fixed-limit razz (FR): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit razz (FR): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: No-limit deuce-to-seven lowball single draw (N2L1D)": {
     "prefix": "phh-n2l1d",
@@ -137,7 +137,7 @@
       "]",
       "${9}"
     ],
-    "description": "No-limit deuce-to-seven lowball single draw (N2L1D): required fields only, per phh/registry/variants.json"
+    "description": "No-limit deuce-to-seven lowball single draw (N2L1D): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit deuce-to-seven lowball triple draw (F2L3D)": {
     "prefix": "phh-f2l3d",
@@ -153,7 +153,7 @@
       "]",
       "${10}"
     ],
-    "description": "Fixed-limit deuce-to-seven lowball triple draw (F2L3D): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit deuce-to-seven lowball triple draw (F2L3D): required fields only, per phh-data/registry/variants.json"
   },
   "PHH hand: Fixed-limit badugi (FB)": {
     "prefix": "phh-fb",
@@ -169,6 +169,6 @@
       "]",
       "${10}"
     ],
-    "description": "Fixed-limit badugi (FB): required fields only, per phh/registry/variants.json"
+    "description": "Fixed-limit badugi (FB): required fields only, per phh-data/registry/variants.json"
   }
 }

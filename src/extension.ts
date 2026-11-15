@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext): void {
   if (!registryPath) {
     vscode.window.showErrorMessage(
       'PHH: the "phh.registryPath" setting is not set. phh-ls needs the path ' +
-        "to the phh/registry directory to start."
+        "to the phh-data/registry directory to start."
     );
     return;
   }

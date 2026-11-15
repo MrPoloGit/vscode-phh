@@ -93,7 +93,7 @@
     },
 
     "generic-pair": {
-      "comment": "Must be begin/end, not a flat `match`: a `match` rule's `patterns` field has no span to apply over, so the field's value was never actually tokenized via #value/#basic-string. Confirmed by this failing on a value containing a literal '#' (phh/corpus/valid/arieh-esposito-hui-yockey-2019.phh's `event` field), which fell through to the top-level #comment pattern matching the '#' inside the string. Same class of bug as tree-sitter-phh's own first-draft string rule.",
+      "comment": "Must be begin/end, not a flat `match`: a `match` rule's `patterns` field has no span to apply over, so the field's value was never actually tokenized via #value/#basic-string. Confirmed by this failing on a value containing a literal '#' (phh-data/corpus/valid/arieh-esposito-hui-yockey-2019.phh's `event` field), which fell through to the top-level #comment pattern matching the '#' inside the string. Same class of bug as tree-sitter-phh's own first-draft string rule.",
       "begin": "^(\\s*)([A-Za-z0-9_-]+)(\\s*)(=)",
       "beginCaptures": {
         "2": { "name": "variable.other.member.phh" },
@@ -114,7 +114,7 @@
     },
 
     "actions-pair": {
-      "comment": "The `actions` field's array elements are not plain strings: their contents are the action-notation micro-grammar (phh/registry/actions.json; tree-sitter-phh-actions), so this pattern nests #action-token-content inside each string instead of using the generic #basic-string/#literal-string rules.",
+      "comment": "The `actions` field's array elements are not plain strings: their contents are the action-notation micro-grammar (phh-data/registry/actions.json; tree-sitter-phh-actions), so this pattern nests #action-token-content inside each string instead of using the generic #basic-string/#literal-string rules.",
       "begin": "^(\\s*)(actions)(\\s*)(=)(\\s*)(\\[)",
       "beginCaptures": {
         "2": { "name": "variable.other.member.phh" },
@@ -149,7 +149,7 @@
     },
 
     "action-token-content": {
-      "comment": "phh/registry/actions.json's grammar: an actor (d, pN), a verb (db/dh/pb/cbr/cc/f/sd/sm), card/amount arguments, and an optional trailing # commentary. Distinct from an ordinary TOML comment, which never reaches this pattern since it only applies inside the quotes.",
+      "comment": "phh-data/registry/actions.json's grammar: an actor (d, pN), a verb (db/dh/pb/cbr/cc/f/sd/sm), card/amount arguments, and an optional trailing # commentary. Distinct from an ordinary TOML comment, which never reaches this pattern since it only applies inside the quotes.",
       "patterns": [
         { "match": "#.*$", "name": "comment.line.number-sign.action-commentary.phh" },
         { "match": "\\bd\\b", "name": "keyword.control.actor.dealer.phh" },

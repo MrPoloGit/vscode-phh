@@ -44,7 +44,7 @@
         "phh.registryPath": {
           "type": "string",
           "default": "",
-          "description": "Path to the phh/registry directory phh-ls should load. Required: phh-ls has no built-in default."
+          "description": "Path to the phh-data/registry directory phh-ls should load. Required: phh-ls has no built-in default."
         }
       }
     }
